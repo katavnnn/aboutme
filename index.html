@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minh Nguyễn - Personal Hub</title>
+    <meta name="description" content="Kết nối với Minh Nguyễn qua các dự án và mạng xã hội.">
+    
+    <!-- Link đến file CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome cho các icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="fade-in">
+
+    <!-- Container chính -->
+    <div class="main-container">
+
+        <!-- ===== SECTION 1: HERO ===== -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <!-- LƯU Ý: Thay YOUR_AVATAR.jpg bằng đường dẫn ảnh của bạn -->
+                <img src="https://scontent.fhph1-3.fna.fbcdn.net/v/t39.30808-6/485800100_1706752253613343_8826727937147483543_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEnITqAzF5ATdoGuY0bgHWBeQIxsFY2NAV5AjGwVjY0BQh8xVS8h6xkYpdcsjHFD91OpRKkVgwPkfCD75j559TD&_nc_ohc=cgCT9Q3KI6EQ7kNvwGJa03K&_nc_oc=Adll3aGHdG88QFdDE7NleDUj1mAABKBmFJ_rEpZffGiIWR0JuFFK0wjTt8XUup700idSJH9eZ-zK1m3JgtPYG98N&_nc_zt=23&_nc_ht=scontent.fhph1-3.fna&_nc_gid=CV-r3h-TIJCpUEq7qSnI4A&oh=00_AfU-r_LYf_Wvb-GKezddzxjKFfMbm6ud7i0ndy53NwWTJg&oe=6895F3B6" alt="Avatar của Minh Nguyễn" class="avatar">
+                <div class="hero-text">
+                    <h1>Minh Nguyễn</h1>
+                    <p class="tagline">Developer | Dreamer | Lifelong Learner</p>
+                    <div class="social-icons">
+                        <!-- LƯU Ý: Thay thế các URL # bằng link thật của bạn -->
+                        <a href="https://github.com/katavnnn" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" target="_blank" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/_muanhoem/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" target="_blank" title="Spotify"><i class="fa-brands fa-spotify"></i></a>
+                        <a href="#" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="bio">
+                Chào bạn, mình là Minh! Mình có một niềm đam mê lớn với việc xây dựng những sản phẩm số đẹp mắt và hữu ích. Đây là góc nhỏ để mình chia sẻ những dự án, khám phá và kết nối.
+            </p>
+        </section>
+
+        <section class="music-section">
+            <h2><i class="fa-solid fa-music"></i> My Vibe</h2>
+            <div class="music-player-container">
+                <div class="music-player-card">
+                    <div class="player-art-container">
+                        <img src="assets/images/covers/cover-1.jpg" alt="Song Art" id="player-art-img" class="player-art-img">
+                    </div>
+                    <div class="player-info">
+                        <h3 id="player-song-title">Song Title</h3>
+                        <p id="player-song-artist">Artist</p>
+                        <div class="player-progress-container">
+                            <div class="player-progress-bar">
+                                <div class="player-progress" id="player-progress"></div>
+                            </div>
+                            <div class="player-time-stamps">
+                                <span id="player-current-time">0:00</span>
+                                <span id="player-duration">0:00</span>
+                            </div>
+                        </div>
+                        <div class="player-controls">
+                            <button id="player-prev-btn" class="player-control-btn"><i class="fas fa-backward"></i></button>
+                            <button id="player-play-btn" class="player-control-btn main-btn"><i class="fas fa-play"></i></button>
+                            <button id="player-next-btn" class="player-control-btn"><i class="fas fa-forward"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="playlist-tabs">
+                    <button class="playlist-tab-btn active" data-playlist="focus">Tập Trung</button>
+                    <button class="playlist-tab-btn" data-playlist="relax">Thư Giãn</button>
+                    <button class="playlist-tab-btn" data-playlist="creative">Sáng Tạo</button>
+                </div>
+                <div class="playlist-content">
+                    <ul id="playlist-list">
+                        <!-- Playlist items will be generated by JavaScript -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION: CREATIVE CORNER ===== -->
+        <section class="creative-section">
+            <h2><i class="fa-solid fa-camera-retro"></i> Góc Sáng Tạo</h2>
+            <div class="photo-gallery">
+                <div class="photo-item">
+                    <img src="https://instagram.fhph2-1.fna.fbcdn.net/v/t51.2885-15/509229007_17867370861393259_987308484903466233_n.webp?stp=dst-webp_s640x640_sh0.08&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0uaW1hZ2VfdXJsZ2VuLjE0NDB4ODEwLnNkci5mNzU3NjEuZGVmYXVsdF9pbWFnZS5jMiJ9&_nc_ht=instagram.fhph2-1.fna.fbcdn.net&_nc_cat=107&_nc_oc=Q6cZ2QGwFHAyXp4y7P87ezKDRbnNlLqdrhv86NdCVW4kP1TR6Iqi90lWBEoAS12hsaPQnE17hYs9XxPCNc8Sx-VebObV&_nc_ohc=hJIeOe37_S0Q7kNvwHt5g-h&_nc_gid=cf4pdYgZJxohUCtZuR0yjg&edm=AP4sbd4BAAAA&ccb=7-5&ig_cache_key=MzY1ODU0OTM4NzY1MzMzNzc0Mg%3D%3D.3-ccb7-5&oh=00_AfW0cz1YgVQmwYhuVbWACSlFb2Z-fXUaAITacwEsBTL75g&oe=68960483&_nc_sid=7a9f4b" alt="Ảnh chụp 1">
+                </div>
+                <div class="photo-item">
+                    <img src="https://instagram.fhph2-1.fna.fbcdn.net/v/t51.2885-15/509229007_17867370861393259_987308484903466233_n.webp?stp=dst-webp_s640x640_sh0.08&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0uaW1hZ2VfdXJsZ2VuLjE0NDB4ODEwLnNkci5mNzU3NjEuZGVmYXVsdF9pbWFnZS5jMiJ9&_nc_ht=instagram.fhph2-1.fna.fbcdn.net&_nc_cat=107&_nc_oc=Q6cZ2QGwFHAyXp4y7P87ezKDRbnNlLqdrhv86NdCVW4kP1TR6Iqi90lWBEoAS12hsaPQnE17hYs9XxPCNc8Sx-VebObV&_nc_ohc=hJIeOe37_S0Q7kNvwHt5g-h&_nc_gid=cf4pdYgZJxohUCtZuR0yjg&edm=AP4sbd4BAAAA&ccb=7-5&ig_cache_key=MzY1ODU0OTM4NzY1MzMzNzc0Mg%3D%3D.3-ccb7-5&oh=00_AfW0cz1YgVQmwYhuVbWACSlFb2Z-fXUaAITacwEsBTL75g&oe=68960483&_nc_sid=7a9f4b" alt="Ảnh chụp 2">
+                </div>
+                <div class="photo-item">
+                    <img src="https://instagram.fhph2-1.fna.fbcdn.net/v/t51.2885-15/509229007_17867370861393259_987308484903466233_n.webp?stp=dst-webp_s640x640_sh0.08&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0uaW1hZ2VfdXJsZ2VuLjE0NDB4ODEwLnNkci5mNzU3NjEuZGVmYXVsdF9pbWFnZS5jMiJ9&_nc_ht=instagram.fhph2-1.fna.fbcdn.net&_nc_cat=107&_nc_oc=Q6cZ2QGwFHAyXp4y7P87ezKDRbnNlLqdrhv86NdCVW4kP1TR6Iqi90lWBEoAS12hsaPQnE17hYs9XxPCNc8Sx-VebObV&_nc_ohc=hJIeOe37_S0Q7kNvwHt5g-h&_nc_gid=cf4pdYgZJxohUCtZuR0yjg&edm=AP4sbd4BAAAA&ccb=7-5&ig_cache_key=MzY1ODU0OTM4NzY1MzMzNzc0Mg%3D%3D.3-ccb7-5&oh=00_AfW0cz1YgVQmwYhuVbWACSlFb2Z-fXUaAITacwEsBTL75g&oe=68960483&_nc_sid=7a9f4b" alt="Ảnh chụp 3">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 2: DISCOVERY CORNER ===== -->
+        <section class="discovery-section">
+            <h2><i class="fa-solid fa-compass"></i> Góc Khám Phá</h2>
+            <div class="discovery-grid">
+                <a href="https://deepmind.google/technologies/gemini/introduction/" target="_blank" class="discovery-card card">
+                    <div class="card-icon gemini-icon">✨</div>
+                    <h3>Gemini 1.5 Pro</h3>
+                    <p>Trợ lý AI thế hệ mới với khả năng hiểu ngữ cảnh cực lớn. Một công cụ thay đổi cuộc chơi cho lập trình viên.</p>
+                </a>
+                <a href="https://www.goodreads.com/book/show/40121378-atomic-habits" target="_blank" class="discovery-card card">
+                    <div class="card-icon"><i class="fa-solid fa-book"></i></div>
+                    <h3>Sách: "Atomic Habits"</h3>
+                    <p>Thay đổi cuộc sống bằng những hành động nhỏ nhất. Cuốn sách gối đầu giường của mình.</p>
+                </a>
+                 <a href="https://www.youtube.com/@Fireship" target="_blank" class="discovery-card card">
+                    <div class="card-icon"><i class="fa-brands fa-youtube"></i></div>
+                    <h3>Kênh: "Fireship"</h3>
+                    <p>Các video code "100 giây" cực kỳ súc tích và hài hước. Nguồn cảm hứng bất tận.</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== SECTION: JOURNEY ===== -->
+        <section class="journey-section">
+            <h2><i class="fa-solid fa-map-signs"></i> Hành Trình</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Đại học</h3>
+                        <p><strong>Trường Đại học Công nghiệp Hà Nội</strong><br>Chuyên ngành: Kỹ thuật Khuôn mẫu</p>
+                        <span class="timeline-date">2024 - Hiện tại</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Trung học Phổ thông</h3>
+                        <p>Trường THPT Bình Giang</p>
+                        <span class="timeline-date">2021 - 2024</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Trung học Cơ sở</h3>
+                        <p>Trường THCS Vũ Hữu</p>
+                        <span class="timeline-date">2014 - 2018</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 3: FEATURED PROJECT ===== -->
+        <section class="project-section">
+            <h2><i class="fa-solid fa-code"></i> Dự Án Nổi Bật</h2>
+            <div class="project-card card">
+                <!-- LƯU Ý: Thay PROJECT_SCREENSHOT.png bằng ảnh chụp màn hình dự án của bạn -->
+                <img src="https://github.com/katavnnn/english-sharing-project/blob/main/src/assets/images/og-image.png?raw=true" alt="Ảnh chụp màn hình dự án English Hub">
+                <div class="project-info">
+                    <h3>English Material Sharing Hub</h3>
+                    <p class="project-description">Một trang web được xây dựng từ đầu để chia sẻ tài liệu học Tiếng Anh, tối ưu cho SEO và trải nghiệm người dùng.</p>
+                    <div class="project-tags">
+                        <span>Eleventy</span>
+                        <span>Tailwind CSS</span>
+                        <span>GitHub Actions</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://katavnnn.github.io/english-sharing-project/" target="_blank" class="project-button">Xem Live <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        <a href="https://github.com/katavnnn/english-sharing-project" target="_blank" class="project-button secondary">Xem Code <i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    <footer class="site-footer">
+            <p>Designed & Built by Minh Nguyễn © <span id="year">2025</span></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

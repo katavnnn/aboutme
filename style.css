@@ -1,0 +1,536 @@
+/* =======================================================
+   STYLE.CSS - MINH NGUYEN'S PERSONAL HUB
+   Concept: "Violet Dream"
+   Theme: Animated Gradient & Neon
+   ======================================================= */
+
+/* ---- 1. Cài đặt cơ bản & Biến màu (Variables) ---- */
+:root {
+    --card-bg: rgba(17, 24, 39, 0.75); /* Nền thẻ bán trong suốt đậm hơn */
+    --border-color: rgba(255, 255, 255, 0.2); /* Viền sáng hơn một chút */
+    --text-color-primary: #f5d0fe; /* Màu chữ chính (tím nhạt) */
+    --text-color-muted: #a8a29e;   /* Màu chữ phụ (xám ấm) */
+    --accent-color: #c084fc;      /* Tím chính */
+    --accent-color-glow: rgba(192, 132, 252, 0.4);
+    --secondary-accent: #f472b6; /* Hồng cho điểm nhấn phụ */
+}
+
+/* ---- 2. Reset & Cài đặt Toàn cục ---- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color-primary);
+    padding: 3rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    line-height: 1.5;
+    
+    /* --- Nền Gradient Tím Động --- */
+    background: linear-gradient(320deg, #3b0764, #5f0f99, #861ce8, #4c1d95);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+    position: relative;
+    overflow-x: hidden;
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Lớp phủ Tinh vân --- */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.15; /* Tăng độ rõ của tinh vân */
+    z-index: -1;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    z-index: 1;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.fade-in {
+    animation: fade-in-animation 1s ease-out;
+}
+@keyframes fade-in-animation {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- 3. Kiểu chữ & Các mục chung ---- */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #f0abfc; /* Màu tiêu đề chính nổi bật hơn */
+}
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-shadow: 0 0 8px var(--accent-color-glow);
+}
+h3 { font-size: 1.25rem; font-weight: 600; }
+
+/* ---- 4. Khu vực Anh Hùng (Hero Section) ---- */
+.hero-section .hero-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.hero-section .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 25px var(--accent-color-glow);
+}
+.hero-section .tagline {
+    color: var(--text-color-muted);
+    margin-top: 0.25rem;
+}
+.hero-section .social-icons {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+.hero-section .social-icons a {
+    color: var(--text-color-muted);
+    font-size: 1.5rem;
+    transition: color 0.3s, transform 0.3s;
+}
+.hero-section .social-icons a:hover {
+    color: var(--accent-color);
+    transform: scale(1.2) rotate(-5deg);
+}
+.hero-section .bio {
+    margin-top: 1.5rem;
+    line-height: 1.7;
+    color: var(--text-color-primary);
+}
+
+/* ---- 6. Khu vực "Góc Khám Phá" (Discovery Corner) ---- */
+.discovery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+.discovery-card {
+    padding: 1.5rem;
+    text-decoration: none;
+    color: var(--text-color-primary);
+    background-color: rgba(31, 41, 55, 0.5);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+.discovery-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(55, 65, 81, 0.7);
+}
+.discovery-card .card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--secondary-accent);
+}
+.gemini-icon {
+    background: linear-gradient(90deg, #c084fc, #f472b6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+.discovery-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+.discovery-card p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-color-muted);
+}
+
+/* ---- 7. Khu vực "Dự án Nổi bật" (Project Section) ---- */
+.project-card {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(31, 41, 55, 0.5);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+.project-card img {
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid var(--border-color);
+}
+.project-info {
+    padding: 1.5rem;
+}
+.project-description {
+    margin: 0.5rem 0 1.5rem 0;
+    color: var(--text-color-muted);
+}
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+.project-tags span {
+    background-color: var(--secondary-accent);
+    color: #270042;
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.project-button {
+    text-decoration: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.project-button:nth-child(1) {
+    background-color: var(--accent-color);
+    color: #270042;
+}
+.project-button:nth-child(1):hover {
+    box-shadow: 0 0 15px var(--accent-color-glow);
+    transform: translateY(-2px);
+}
+.project-button.secondary {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color-primary);
+}
+.project-button.secondary:hover {
+    background-color: var(--border-color);
+    color: var(--text-color-primary);
+}
+
+/* ---- 8. Footer ---- */
+.site-footer {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    color: var(--text-color-muted);
+    font-size: 0.9rem;
+}
+
+/* ---- 9. Thiết kế Đáp ứng (Responsive) ---- */
+@media (max-width: 640px) {
+    body { padding: 1rem; }
+    .main-container { padding: 1.5rem; }
+    h1 { font-size: 2rem; }
+    .hero-section .hero-content { flex-direction: column; text-align: center; }
+    .hero-section .social-icons { justify-content: center; }
+}
+
+/* ---- 10. Modern Music Player ---- */
+.music-section {
+    width: 100%;
+}
+
+.music-player-container {
+    background-color: rgba(31, 41, 55, 0.5);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.music-player-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.player-art-container {
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+}
+
+.player-art-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.5s ease;
+}
+
+.player-art-img.playing {
+    transform: scale(1.05);
+}
+
+.player-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player-info h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color-primary);
+    margin-bottom: 0.25rem;
+}
+
+.player-info p {
+    font-size: 0.9rem;
+    color: var(--text-color-muted);
+    margin-bottom: 1rem;
+}
+
+.player-progress-container {
+    width: 100%;
+    cursor: pointer;
+}
+
+.player-progress-bar {
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 6px;
+    border-radius: 3px;
+}
+
+.player-progress {
+    background-color: var(--accent-color);
+    width: 0%;
+    height: 100%;
+    border-radius: 3px;
+}
+
+.player-time-stamps {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    color: var(--text-color-muted);
+    margin-top: 0.5rem;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.player-control-btn {
+    background: none;
+    border: none;
+    color: var(--text-color-primary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.player-control-btn:hover {
+    color: var(--accent-color);
+}
+
+.player-control-btn.main-btn {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-control-btn.main-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.playlist-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.playlist-tab-btn {
+    background: none;
+    border: none;
+    color: var(--text-color-muted);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+.playlist-tab-btn.active {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.playlist-content {
+    margin-top: 1.5rem;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+#playlist-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#playlist-list li {
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 500;
+}
+
+#playlist-list li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#playlist-list li.active {
+    background-color: var(--accent-color-glow);
+    color: var(--accent-color);
+    font-weight: 700;
+}
+
+/* ---- Responsive cho trình phát nhạc ---- */
+@media (max-width: 500px) {
+    .music-player-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .player-controls {
+        justify-content: center;
+    }
+}
+
+/* ---- 11. Creative Corner ---- */
+.creative-section {
+    width: 100%;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.photo-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.photo-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px var(--accent-color-glow);
+}
+
+/* ---- 12. Journey (Timeline) ---- */
+.journey-section {
+    width: 100%;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 2px solid var(--border-color);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -2.5rem;
+    top: 0.25rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    border: 3px solid #3b0764;
+    box-shadow: 0 0 10px var(--accent-color-glow);
+}
+
+.timeline-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-content p {
+    color: var(--text-color-muted);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    font-weight: 600;
+}
