@@ -44,7 +44,7 @@ body {
     overflow-x: hidden;
 }
 
-@keyframes gradient-animation {
+ @keyframes gradient-animation {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
@@ -82,7 +82,7 @@ body::before {
 .fade-in {
     animation: fade-in-animation 1s ease-out;
 }
-@keyframes fade-in-animation {
+ @keyframes fade-in-animation {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
@@ -263,7 +263,7 @@ h3 { font-size: 1.25rem; font-weight: 600; }
 }
 
 /* ---- 9. Thiết kế Đáp ứng (Responsive) ---- */
-@media (max-width: 640px) {
+ @media (max-width: 640px) {
     body { padding: 1rem; }
     .main-container { padding: 1.5rem; }
     h1 { font-size: 2rem; }
@@ -452,7 +452,7 @@ h3 { font-size: 1.25rem; font-weight: 600; }
 }
 
 /* ---- Responsive cho trình phát nhạc ---- */
-@media (max-width: 500px) {
+ @media (max-width: 500px) {
     .music-player-card {
         flex-direction: column;
         text-align: center;
@@ -533,4 +533,43 @@ h3 { font-size: 1.25rem; font-weight: 600; }
     font-size: 0.85rem;
     color: var(--accent-color);
     font-weight: 600;
+}
+
+/* ---- 13. Intro Lyrics ---- */
+#lyrics-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 1.75em; /* Giảm kích thước một chút để vừa vặn hơn */
+    color: var(--text-color-primary);
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 0 25px var(--accent-color-glow);
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 2s ease-out; /* Tăng tốc độ mờ dần một chút */
+    pointer-events: none; /* Allow clicking through the lyrics */
+}
+
+#lyrics-container.hidden {
+    opacity: 0;
+}
+
+/* ---- 14. Typewriter Effect ---- */
+.typing-cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    color: var(--accent-color);
+    margin-left: 0.25rem; /* Thêm khoảng cách nhỏ cho con trỏ */
+}
+
+@keyframes blink {
+    from, to { opacity: 1; }
+    50% { opacity: 0; }
 }

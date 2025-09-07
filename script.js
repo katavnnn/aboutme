@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Original script content
     const playerArtImg = document.getElementById('player-art-img');
     const songTitle = document.getElementById('player-song-title');
     const songArtist = document.getElementById('player-song-artist');
@@ -164,4 +165,80 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial Load
     loadPlaylist(currentPlaylistName);
     loadSong(playlists[currentPlaylistName][currentSongIndex]);
+
+    // New Intro Music Logic with Typewriter Effect
+    const introMusic = document.getElementById('intro-music');
+    const lyricsContainer = document.getElementById('lyrics-container');
+
+    const startIntro = () => {
+        const lyricLines = [
+            "Đôi khi vài giọt nước mắt.",
+            "Thay cho cảm xúc trước mặt",
+            "Em hỏi vì sao hạnh phúc không sắc không màu mà lại đớn đau."
+        ];
+        const lyricElements = lyricsContainer.querySelectorAll('p');
+        const typingSpeed = 120; // ms per character
+
+        // Clear any existing text (like "Click to begin")
+        lyricElements.forEach(p => p.textContent = '');
+
+        lyricsContainer.classList.remove('hidden');
+        introMusic.play().catch(error => console.log("Music autoplay failed.", error));
+
+        function typeLine(lineIndex) {
+            if (lineIndex >= lyricLines.length) {
+                // All lines typed, fade out the container
+                setTimeout(() => {
+                    lyricsContainer.classList.add('hidden');
+                }, 2000); // Wait 2 seconds before fading
+                return;
+            }
+
+            const p = lyricElements[lineIndex];
+            const text = lyricLines[lineIndex];
+            let charIndex = 0;
+            p.classList.add('typing-cursor');
+
+            const typingInterval = setInterval(() => {
+                if (charIndex < text.length) {
+                    p.textContent += text.charAt(charIndex);
+                    charIndex++;
+                } else {
+                    clearInterval(typingInterval);
+                    p.classList.remove('typing-cursor');
+                    // Move to the next line after a short delay
+                    setTimeout(() => typeLine(lineIndex + 1), 500);
+                }
+            }, typingSpeed);
+        }
+
+        // Start the typing sequence
+        typeLine(0);
+
+        
+
+        // Clean up interaction listeners
+        document.body.removeEventListener('click', startIntro, { once: true });
+        document.body.removeEventListener('touchstart', startIntro, { once: true });
+    };
+
+    // Try to play automatically, otherwise wait for user interaction.
+    // We add a small delay to ensure the page is fully ready.
+    setTimeout(() => {
+        const playPromise = introMusic.play();
+        if (playPromise !== undefined) {
+            playPromise.then(_ => {
+                // Autoplay started!
+                startIntro();
+            }).catch(error => {
+                // Autoplay was prevented.
+                // Show a message and wait for interaction.
+                lyricsContainer.classList.remove('hidden');
+                const p = lyricsContainer.querySelector('p');
+                if(p) p.textContent = "Click để bắt đầu";
+                document.body.addEventListener('click', startIntro, { once: true });
+                document.body.addEventListener('touchstart', startIntro, { once: true });
+            });
+        }
+    }, 500);
 });
